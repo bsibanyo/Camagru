@@ -167,12 +167,12 @@ body{
 }
 
 .badges img{
-    max-width: .1rem;
+    max-width: 14rem;
     cursor: pointer;
 }
 
 .badges img:first-child{
-    margin-right: 1rem;
+    margin-right: 1.5rem;
 }
 
 footer{

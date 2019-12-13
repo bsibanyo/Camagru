@@ -1,3 +1,7 @@
+<?php
+require_once 'signup.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +16,25 @@
     <div class="container">
         <div class="phone-app-demo"></div>
         <div class="form-data">
-           <form action="">
+           <form action="index.php" method="post">
+               
                <div class="logo">
                    <img src="images/logo.png" alt="camagru">
                </div>
-               <input type="text" placeholder="Username"  required>
-               <input type="email" placeholder="Email" required>
-               <input type="password" placeholder="Password"  required>
-               <input type="repeat-password" placeholder="Confirm Password"  required>
-               <button class="form-btn" type="submit">Sign up</button>
+               <?php
+                echo "<ul>";
+                if(count($error) > 0) {
+                    foreach ($error as $me){
+                        echo "<li> $me </li>";
+                    }
+                }
+                echo "</ul>"
+               ?>
+               <input type="text" placeholder="Username"   name="username">
+               <input type="email" placeholder="Email"  name="email">
+               <input type="password" placeholder="Password"   name="password">
+               <input type="password" placeholder="Confirm Password"   name="passwordRepeat">
+               <button class="form-btn" type="submit" name="submit">Sign up</button>
                <span class="has-seperator">Or</span>
                <a class="facebook-login" href="#">
                    <i class="fab fa-facebook"></i>Log in with Facebook
