@@ -2,7 +2,7 @@
     include 'config/database.php';
     session_start();
 
-    $error = array();
+    $msg = "";
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -13,21 +13,21 @@
         $isEmailConfirmed = FALSE;
         
         if(empty($username) || empty($email) || empty($password) || empty($passwordRepeat) ){
-             $error["Error"] = "empty fields";
+             $msg = "empty fields";
         }else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
-                 $error["emailError"] = "invalid email";                           //if the user didn't fill in all the details, this will send him back to the main page with email && username
+                 $msg = "invalid email";                           //if the user didn't fill in all the details, this will send him back to the main page with email && username
         }
         else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-            $error["usernameError"] = "invalid username";  
+            $msg = "invalid username";  
         }
         else if ((strlen($password) <= 6)){
-            $error["passwordLength"] = "Password must be 6 or more'.'<br>'.'characters long!";
+            $msg = "Password must be 6 or more'.'<br>'.'characters long!";
         }
         else if(!preg_match('/(?=.*[a-z])(?=.*[0-9]).{6,}/i', $password)){
-            $error["passwordLength"] = "Password must contain letters and digits";
+            $msg = "Password must contain letters and digits";
         }
         else if($password !==  $passwordRepeat){
-            $error["passwordLength"] = "passwords do not match!";
+            $msg = "passwords do not match!";
         }
         else {
         
@@ -37,9 +37,9 @@
                     $stm->execute();
                     $row = $stm->fetch(PDO::FETCH_ASSOC);
                     if($row['email'] == $email){
-                        $error["signupError"] = "email already exist!";
+                        $msg = "email already exist!";
                     }else if($row['username'] == $username){
-                        $error["signupError"] = "username already exist!";
+                        $msg = "username already exist!";
                     }
                     else {
                         // prepare sql and bind parameters
@@ -78,7 +78,7 @@
                         mail("$email", "Verification", "$message", "$header");
         
         
-                        $error["signupError"] = "signup success confirm email, before logging in!!";
+                        $msg = "signup success confirm email, before logging in!!";
                         header("Location: verify_account_msg.php");
                     }
                 }

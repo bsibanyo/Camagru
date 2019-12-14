@@ -1,3 +1,7 @@
+<?php
+require_once 'login.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +16,16 @@
     <div class="container">
         <div class="#"></div>
         <div class="form-data">
-           <form action="">
+           <form action="login.php" method="post">
                <div class="logo">
                    <img src="images/logo.png" alt="camagru">
                </div>
                <div class="error">
-               <?php
-                echo "<ul>";
-                if(count($error) > 0) {
-                    foreach ($error as $me){
-                        echo "<li> $me </li>";
-                    }
-                }
-                echo "</ul>"
-               ?>
+               <?php echo $msg; ?>
                </div>
-               <input type="text" placeholder="Username" required name="username">
-               <input type="password" placeholder="Password"  required name="password">
-               <button class="form-btn" type="submit">Log in</button>
+               <input type="text" placeholder="Username" name="username">
+               <input type="password" placeholder="Password" name="password">
+               <button class="form-btn" type="submit" name="submit">Log in</button>
                <span class="has-seperator">Or</span>
                <a class="facebook-login" href="#">
                    <i class="fab fa-facebook"></i>Log in with Facebook

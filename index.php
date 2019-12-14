@@ -22,15 +22,7 @@ require_once 'signup.inc.php';
                    <img src="images/logo.png" alt="camagru">
                </div>
                <div class="error">
-               <?php
-                echo "<ul>";
-                if(count($error) > 0) {
-                    foreach ($error as $me){
-                        echo "<li> $me </li>";
-                    }
-                }
-                echo "</ul>"
-               ?>
+               <?php echo $msg; ?>
                </div>
                <input type="text" placeholder="Username"   name="username" required>
                <input type="email" placeholder="Email"  name="email" required>
