@@ -21,6 +21,7 @@ require_once 'signup.inc.php';
                <div class="logo">
                    <img src="images/logo.png" alt="camagru">
                </div>
+               <div class="error">
                <?php
                 echo "<ul>";
                 if(count($error) > 0) {
@@ -30,6 +31,7 @@ require_once 'signup.inc.php';
                 }
                 echo "</ul>"
                ?>
+               </div>
                <input type="text" placeholder="Username"   name="username">
                <input type="email" placeholder="Email"  name="email">
                <input type="password" placeholder="Password"   name="password">

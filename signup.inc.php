@@ -2,10 +2,6 @@
     include 'config/database.php';
     session_start();
 
-
-    // $error["signupError"] = "";
-
-    // $passwordRepeat = "";
     $error = array();
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];

@@ -15,6 +15,17 @@
                <div class="logo">
                    <img src="images/logo.png" alt="camagru">
                </div>
+               <div class="error">
+               <?php
+                echo "<ul>";
+                if(count($error) > 0) {
+                    foreach ($error as $me){
+                        echo "<li> $me </li>";
+                    }
+                }
+                echo "</ul>"
+               ?>
+               </div>
                <input type="email" placeholder="Email" required>
                <button class="form-btn" type="submit">Send Login Link</button>
                <span class="has-seperator">Or</span>

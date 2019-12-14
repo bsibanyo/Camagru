@@ -1,8 +1,8 @@
 <?php
 
 $DB_DSN = 'mysql:dbname=camagru;host=localhost';
-$DB_USER = 'root';
-$DB_PASSWORD = 'University25';
+$DB_USER = 'admin';
+$DB_PASSWORD = 'admin4321';
 
 try{
     $conn = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);

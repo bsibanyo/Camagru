@@ -16,8 +16,19 @@
                <div class="logo">
                    <img src="images/logo.png" alt="camagru">
                </div>
-               <input type="text" placeholder="Username" required>
-               <input type="password" placeholder="Password"  required>
+               <div class="error">
+               <?php
+                echo "<ul>";
+                if(count($error) > 0) {
+                    foreach ($error as $me){
+                        echo "<li> $me </li>";
+                    }
+                }
+                echo "</ul>"
+               ?>
+               </div>
+               <input type="text" placeholder="Username" required name="username">
+               <input type="password" placeholder="Password"  required name="password">
                <button class="form-btn" type="submit">Log in</button>
                <span class="has-seperator">Or</span>
                <a class="facebook-login" href="#">
