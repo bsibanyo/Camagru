@@ -12,6 +12,15 @@ require_once 'signup.inc.php';
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="wall">
+    <nav>
+        <!-- <ul>
+            <li><a href="#">Wall</a></li>
+        </ul> -->
+        <button type="submit"><a href="profile.php">Wall</a></button>
+    </nav>
+</div>
+
 <div id="wrapper">
     <div class="container">
         <div class="phone-app-demo"></div>
