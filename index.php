@@ -14,10 +14,7 @@ require_once 'signup.inc.php';
 <body>
 <div class="wall">
     <nav>
-        <!-- <ul>
-            <li><a href="#">Wall</a></li>
-        </ul> -->
-        <button type="submit"><a href="profile.php">Wall</a></button>
+        <button type="submit"><a href="wall.php">Wall</a></button>
     </nav>
 </div>
 
