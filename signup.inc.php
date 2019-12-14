@@ -76,9 +76,7 @@
                         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                         $headers .= 'From: <noreply@camagru.co.za>' . "\r\n";
                         mail("$email", "Verification", "$message", "$header");
-        
-        
-                        $msg = "signup success confirm email, before logging in!!";
+    
                         header("Location: verify_account_msg.php");
                     }
                 }

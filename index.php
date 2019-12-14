@@ -21,13 +21,11 @@ require_once 'signup.inc.php';
                <div class="logo">
                    <img src="images/logo.png" alt="camagru">
                </div>
-               <div class="error">
-               <?php echo $msg; ?>
-               </div>
-               <input type="text" placeholder="Username"   name="username" required>
-               <input type="email" placeholder="Email"  name="email" required>
-               <input type="password" placeholder="Password"   name="password" required>
-               <input type="password" placeholder="Confirm Password"   name="passwordRepeat" required>
+               <?php echo $msg ?>
+               <input type="text" placeholder="Username"   name="username">
+               <input type="email" placeholder="Email"  name="email">
+               <input type="password" placeholder="Password"   name="password">
+               <input type="password" placeholder="Confirm Password"   name="passwordRepeat">
                <button class="form-btn" type="submit" name="submit">Sign up</button>
                <span class="has-seperator">Or</span>
                <a class="facebook-login" href="#">

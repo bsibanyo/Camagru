@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
                         $validpassword = password_verify($password, $result['password']);
                         if ($validpassword){
                             $_SESSION['username'] = $result['username'];
-                            header('Location: home.php');
+                            header('Location: profile.php');
                         }
                         else{
                             $msg = 'Incorrect username or password combination!';
