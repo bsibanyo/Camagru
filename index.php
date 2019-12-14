@@ -32,10 +32,10 @@ require_once 'signup.inc.php';
                 echo "</ul>"
                ?>
                </div>
-               <input type="text" placeholder="Username"   name="username">
-               <input type="email" placeholder="Email"  name="email">
-               <input type="password" placeholder="Password"   name="password">
-               <input type="password" placeholder="Confirm Password"   name="passwordRepeat">
+               <input type="text" placeholder="Username"   name="username" required>
+               <input type="email" placeholder="Email"  name="email" required>
+               <input type="password" placeholder="Password"   name="password" required>
+               <input type="password" placeholder="Confirm Password"   name="passwordRepeat" required>
                <button class="form-btn" type="submit" name="submit">Sign up</button>
                <span class="has-seperator">Or</span>
                <a class="facebook-login" href="#">
