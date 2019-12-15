@@ -18,7 +18,7 @@
             <li>Gallery</li>
             <li>Notification</li>
             <li>Members</li>
-            <li>Logout</li>
+            <li><a href="index.php">Logout</a></li>
         </ul>
     </nav>
     <div class="booth">
