@@ -9,7 +9,7 @@ require_once 'login.inc.php';
     <meta name="viewport"
         content="width=device-width, user-scalable=no, innitial-scale=1.0, minimum-scale=1.0">
     <title>Log in</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <div id="wrapper">
