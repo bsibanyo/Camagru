@@ -12,7 +12,7 @@
 <nav>
         <ul>
             <li>Camagru</li>
-            <li>User</li>
+            <li><a href="editProfile.php">Edit Profile</a></li>
             <li><a href="profile.php">Profile</a></li>
             <li>Gallery</li>
             <li>Notification</li>

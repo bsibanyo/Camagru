@@ -1,7 +1,5 @@
 <?php
-  // session_start();
-//   require_once 'imageInsert.php';
-//   require_once 'controls.php';
+
 require_once 'config/database.php';
 require_once 'signup.inc.php';
 
