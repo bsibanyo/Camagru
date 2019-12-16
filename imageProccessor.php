@@ -26,8 +26,10 @@ require_once 'signup.inc.php';
 
 
 
-      	// file_put_contents($newer, file_get_contents("Camagru/saveImages/".$target_file, true));
-      	// file_put_contents($newer, file_get_contents($file['tmp_name']));
+      	// file_put_contents($newer, file_get_contents("camagru/imageSaved/".$target_file, true));
+        // file_put_contents($newer, file_get_contents($file['tmp_name']));
+        
+
         move_uploaded_file($file['tmp_name'], $newer);
         // $get = file_get_contents($target_file);
         //$new = explode('1./',$target_file);
