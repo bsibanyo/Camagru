@@ -1,44 +1,3 @@
-// (function(){
-//     var video = document.getElementById('video'), //capture the video element
-//         canvas = document.getElementById('canvas'),
-//         context = canvas.getContext('2d'),
-//         photo = document.getElementById('photo'),
-//         vendorUrl = window.URL || window.webkitURL; //generate the source
-
-
-//     navigator.getMedia = navigator.getUserMedia ||//to define if we wnat audio,video etc, check callback success/error User denied
-//                         navigator.webkitGetUserMedia||
-//                         navigator.mozGetUserMedia||
-//                         navigator.msGetUserMedia;
-
-//    //start capturing video   
-//    navigator.getMedia({
-//        video: true,
-//        audio: false
-//    },
-//    //actual stream of the webcam  
-//    function(stream){
-//     video.src = vendorUrl.createObjectURL(stream);
-//     // video.srcObject = stream;
-//     video.play;
-//    }, 
-//    //error handler
-//    function(error){
-
-//    }); 
-   
-//    document.getElementById('capture').addEventListener('click', function(){
-//         context.drawImage(video, 0, 0, 400, 300);
-
-//         //here to manipulate the canvas 
-
-//         photo.setAttribute('src', canvas.toDataURL('image/png'));
-
-//    });
-
-
-// })();
-
 (function (){
     navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
   
@@ -89,10 +48,10 @@
       let form = new FormData();
   
       form.append('file', blob);
-      form.append('upload', 'Upload');
+      form.append('post', 'Upload');
       // form.append('ajaxupload', 'true');
       // 2. Configure it: GET-request for the URL /article/.../load
-      xhr.open('POST', './imageProccessor.php');
+      xhr.open('POST', './proccessForm.php');
   
       // 3. Send the request over the network
        xhr.send(form);
@@ -102,7 +61,7 @@
       xhr.onload = function() {
         if (xhr.status != 200) { // analyze HTTP status of the response
           //alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
-          console.log('It Failed!\n '+ xhr.status);
+          console.log('It Failed!');
         } else { // show the result
           //alert(`Done, got ${xhr.response.length} bytes`); // responseText is the server
           console.log(xhr.responseText);
@@ -116,3 +75,4 @@
   }
   
   document.getElementById('upload').addEventListener('click', uploadFile);
+  
