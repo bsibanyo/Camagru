@@ -9,25 +9,27 @@ require_once 'signup.inc.php';
 
 
   if (isset($_POST['upload'])){
-        //$filename      = time()."_".uniqid();
         $filename      = uniqid();
         $target_file   = $filename;
-      	// $target_file2   = "./saveImages/".$filename;
+      	
         $file          = $_FILES["file"];
+        // print($file);
       	$imageFileType = strtolower(pathinfo($file["tmp_name"], PATHINFO_EXTENSION));
       	$allowed       = array('jpg', 'jpeg', 'gif', 'png', 'tif');
-      	$target_file  .= '.'.explode('/', $file['type'])[1];
-      	$filename	  .= '.'.explode('/', $file['type'])[1];
+      	// $target_file  .= '.'.explode('/', $file['type'])[1];
+      	$target_file  = $file['type'];
+      	// $filename	  .= '.'.explode('/', $file['type'])[1];
+      	$filename	  .= $file['type'];
 
-        // $get = file_get_contents("./saveImages/".$target_file);
+        
         $new = explode('1./',$target_file);
-        $newer = "./ImageSaved/".$new[0]; // change to $target_file
+        $newer = "./imageSaved/".$new[0]; // change to $target_file
 
 
 
 
-      	// file_put_contents($newer, file_get_contents("camagru/imageSaved/".$target_file, true));
-        // file_put_contents($newer, file_get_contents($file['tmp_name']));
+      	
+         file_put_contents($newer, file_get_contents($file['tmp_name']));
         
 
         move_uploaded_file($file['tmp_name'], $newer);
