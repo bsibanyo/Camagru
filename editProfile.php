@@ -22,7 +22,7 @@ function cleanInput($accept){
     return $var;
 }
 
-if(isset($_POST['submit']) && isset($_POST['Username'])){
+if(isset($_POST['Update']) && isset($_POST['Username'])){
     $username =  cleanInput($_POST['Username']);
     update('username', $username, $_SESSION['id']);
 }
@@ -57,7 +57,7 @@ if(isset($_POST['submit']) && isset($_POST['Username'])){
                NO<input type="radio" name="notification" value="no"></br>
 
 
-               <button class="form-btn" type="submit" name="submit">Update Info</button>
+               <button class="form-btn" type="submit" name="Update">Update Info</button>
 
                
              
