@@ -18,7 +18,9 @@
             <li>Gallery</li>
             <li>Notification</li>
             <li>Members</li>
-            <li><a href="index.php">Logout</a></li>
+            <form action="logout.php" method="post">
+                    <button type="submit" name="logout" class="logout">Logout</button>
+                </form>
         </ul>
     </nav>
     <div class="booth">
