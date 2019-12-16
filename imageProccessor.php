@@ -34,8 +34,6 @@ require_once 'signup.inc.php';
         //$newer = "./saveImages/".$new[0];
 
         insertImage($_SESSION['id'],$_SESSION['username'], $newer);
-
-        echo $_SESSION['id'] . "\n" . $_SESSION['username'];
          
       }
 

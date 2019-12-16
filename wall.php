@@ -26,6 +26,40 @@
               
               
     </div>
+
+    <?php
+
+        require_once 'config/database.php';
+        function getImage(){
+            global $conn;
+            $query = "SELECT * FROM images";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+
+            echo '<div class="gallery" style=" display : grid; grid-template-columns : 1fr 1fr 1fr; grid-gap: 1rem; width: 100vw; margin :3rem 3rem; ">';//grid-template-rows: auto; //repeat(auto-fit, minmax(300px, 1fr))
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              // echo '<div class="grid-item">';
+              $dest = $row['id'];
+              $user_id = $row['user_id'];
+              // echo "<td>";
+              $temp = explode("_", $row['img']);
+              if (isset($_SESSION['id'])) {
+                $link = '<a  href="comments_likes.php?id='.$dest.'&userId='.$user_id.'">';
+    
+                echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a>';
+              }else{
+              echo '<img class="grid-item" src="'.$row['img'] . '" height="250" width="250" alt="fail">';
+              }
+              // echo "<br>";
+              // echo "</td><br>";
+              // echo "</div>";
+            }
+            echo "</div>";
+
+        }
+
+
+    ?>
     
 </body>
 </html>

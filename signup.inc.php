@@ -53,7 +53,7 @@
                         //$stmt->execute();
 
                         if ($stmt->execute()) {
-                            $user_id = $handle->lastInsertId();
+                            $user_id = $conn->lastInsertId();
                             $_SESSION['id'] = $user_id;
                             $_SESSION['username'] = $username;
                             $_SESSION['email'] = $email;
