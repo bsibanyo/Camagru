@@ -50,8 +50,15 @@
                         $stmt->bindParam(':password', $hashed);
                         $stmt->bindParam(':token', $token);
                         $stmt->bindParam(':isEmailConfirmed', $isEmailConfirmed, PDO::PARAM_BOOL);
-                        $stmt->execute();
-        
+                        //$stmt->execute();
+
+                        if ($stmt->execute()) {
+                            $user_id = $handle->lastInsertId();
+                            $_SESSION['id'] = $user_id;
+                            $_SESSION['username'] = $username;
+                            $_SESSION['email'] = $email;
+                            $_SESSION['isEmailConfirmed'] = $isEmailConfirmed;
+                        }
         
                         // sendmail php   
         

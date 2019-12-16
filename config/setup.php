@@ -36,9 +36,7 @@ try {
         id INT(9) AUTO_INCREMENT PRIMARY KEY NOT NULL, 
         img VARCHAR(255) NOT NULL, 
         username VARCHAR(100) NOT NULL, 
-        email VARCHAR(100) NOT NULL, 
-        user_id INT(9) NOT NULL, 
-        date TIMESTAMP);";
+        user_id INT(9) NOT NULL);";
     $db->exec($query);
     
     //profileImage
