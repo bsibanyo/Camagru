@@ -1,10 +1,26 @@
 <?php require 'signup.inc.php';
+require 'config/database.php';
  
+  function addLikes($id, $username, $likes){
+    global $conn;
+    try{
+      $query = "INSERT INTO likes (img_id,username,likes) VALUES (:img_id, :username, :likes)";
+      $stmt = $conn->prepare($query);
+      $stmt->bindParam(':img_id', $id);
+      $stmt->bindParam(':username', $username);
+      $stmt->bindParam(':likes', $likes);
+      $stmt->execute();
+    }
+    catch(PDOException $e){
+      echo "Uanble to access database >".$e->getMessage();
+    }
+  }
+
  //likes
  if(isset($_GET['id'])){
    $img_id = $_GET['id'];
    $clicked = $_GET['clicked'];
-   
+   addLikes($img_id, $_SESSION['username'], $clicked);
   }
  
 
