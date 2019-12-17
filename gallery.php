@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/profileEditor.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Profile</title>
 </head>
 <body>
@@ -53,9 +54,9 @@ function getImage(){
         $link = '<a  href="comments_likes.php?id='.$dest.'&userId='.$user_id.'">';
 
         echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a><br>';
-        echo "<button style='width: 5%;'>like</button>";
-        echo "<button style='width: 15%;'>Add Comments</button>";
-        echo "<button style='width: 15%;'>View Comments</button><br>";
+        echo "<button class='btn btn-primary' style='width: 5%;'>like</button>";
+        echo "<button class='btn btn-primary' style='width: 15%;'>Add Comments</button>";
+        echo "<button class='btn btn-primary' style='width: 15%;'>View Comments</button><br>";
     //   }else{
     //   echo '<img class="grid-item" src="'.$row['img'] . '" height="250" width="250" alt="fail">';
     //   }
