@@ -9,19 +9,9 @@
     <title>Photo</title>
 </head>
 <body>
-<nav>
-        <ul>
-            <li>Camagru</li>
-            <li><a href="editProfile.php">Edit Profile</a></li>
-            <li><a href="profile.php">Profile</a></li>
-            <li>Gallery</li>
-            <li>Notification</li>
-            <li>Members</li>
-            <form action="logout.php" method="post">
-                    <button type="submit" name="logout" class="logout">Logout</button>
-                </form>
-        </ul>
-    </nav>
+<?php
+    require_once 'header.php';
+    ?>
     <div class="booth">
     
         <video id="video" width="400" height="300"></video>
