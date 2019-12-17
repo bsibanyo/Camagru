@@ -72,6 +72,11 @@ if(isset($_POST['Update']) && isset($_POST['Oldpassword'])){
    
 }
 
+if(isset($_POST['Update']) && isset($_POST['notifications'])){
+    echo $_POST['notifications'];
+    update('notifications', $_POST['notifications'], $_SESSION['id']);
+}
+
 
 
 ?>
@@ -100,8 +105,8 @@ if(isset($_POST['Update']) && isset($_POST['Oldpassword'])){
                <input type="password" placeholder="New Password"   name="Newpassword">  </br>
                <input type="password" placeholder="Confirm  New Password"   name="passwordConfirm"> </br>
                 Nofication: 
-               YES<input type="radio" name="notification" value="yes">
-               NO<input type="radio" name="notification" value="no"></br>
+               YES<input type="radio" name="notifications" value="yes">
+               NO<input type="radio" name="notifications" value="no"></br>
 
 
                <button class="form-btn" type="submit" name="Update">Update Info</button>
