@@ -20,7 +20,7 @@ require 'signup.inc.php';
 
 
         file_put_contents($newer, file_get_contents($file['tmp_name']));
-        echo "\n\n$newer\n\n".$file['tmp_name'];
+        // echo "\n\n$newer\n\n".$file['tmp_name'];
 
         move_uploaded_file($file['tmp_name'], $newer);
 

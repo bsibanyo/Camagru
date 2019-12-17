@@ -49,8 +49,9 @@ try {
     //likes
     $query = "CREATE TABLE likes (
         id INT(9) AUTO_INCREMENT PRIMARY KEY NOT NULL, 
-        img VARCHAR(255) NOT NULL, 
-        username VARCHAR(100) NOT NULL);";
+        img_id INT(9) NOT NULL, 
+        username VARCHAR(100) NOT NULL,
+        likes INT(9) NOT NULL);";
     $db->exec($query);
     
     //unlikes

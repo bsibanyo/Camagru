@@ -1,6 +1,9 @@
 <?php require 'signup.inc.php';
  
+ //likes
  if(isset($_GET['id'])){
+   $img_id = $_GET['id'];
+   $clicked = $_GET['clicked'];
    
   }
  
