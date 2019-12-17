@@ -91,6 +91,13 @@ if(isset($_POST['Update']) && isset($_POST['notifications'])){
     <title>Profile editor</title>
 </head>
 <body>
+<div class="wall">
+    <nav>
+        <button type="submit"><a href="photo.php">Back</a></button>
+    </nav>
+</div>
+
+
 <form action="editProfile.php" method="post">
                
                <div class="logo">
