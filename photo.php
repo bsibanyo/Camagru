@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/photo.css">
     <link rel="stylesheet" href="css/profile.css">
+    
     <title>Photo</title>
 </head>
 <body>

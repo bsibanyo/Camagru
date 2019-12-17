@@ -13,19 +13,6 @@
     </nav>
 </div>
 
-<div id="wrapper">
-    <div class="container">
-        
-               
-               <div class="logo">
-                   <img src="images/screenshot!" alt="camagru">
-               </div>
-               <div class="logo">
-                   <img src="images/screenshot1" alt="camagru">
-               </div>
-              
-              
-    </div>
 
     <?php
 
