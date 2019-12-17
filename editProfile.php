@@ -1,10 +1,10 @@
 <?php
 
 require_once 'config/database.php';
-require_once 'signup.inc.php';
+require 'signup.inc.php';
 
 
-function update($fromValue, $toVaue, $id){
+function update($fromValue, $toValue, $id){
     global $conn;
     try{
 
