@@ -67,7 +67,7 @@ if(isset($_POST['Update']) && isset($_POST['Oldpassword'])){
         }
     }
     else{
-        $msg = "Wrong Password!";
+        $msg = "All passwords do not match!";
     }
    
 }

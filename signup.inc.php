@@ -10,6 +10,7 @@
         $passwordRepeat = $_POST['passwordRepeat'];
         $hashed = password_hash($password, PASSWORD_BCRYPT);
         $token = bin2hex(openssl_random_pseudo_bytes(16));
+        $notifications = 'No';
         $isEmailConfirmed = FALSE;
         
         if(empty($username) || empty($email) || empty($password) || empty($passwordRepeat) ){
@@ -43,12 +44,13 @@
                     }
                     else {
                         // prepare sql and bind parameters
-                        $stmt = $conn->prepare("INSERT INTO users (username, email, password, token, isEmailConfirmed)
-                        VALUES (:username, :email, :password, :token, :isEmailConfirmed)");
+                        $stmt = $conn->prepare("INSERT INTO users (username, email, password, token, isEmailConfirmed, notifications)
+                        VALUES (:username, :email, :password, :token, :isEmailConfirmed, :notifications)");
                         $stmt->bindParam(':username', $username);
                         $stmt->bindParam(':email', $email);
                         $stmt->bindParam(':password', $hashed);
                         $stmt->bindParam(':token', $token);
+                        $stmt->bindParam(':notifications', $notifications);
                         $stmt->bindParam(':isEmailConfirmed', $isEmailConfirmed, PDO::PARAM_BOOL);
                         //$stmt->execute();
 

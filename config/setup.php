@@ -27,7 +27,8 @@ try {
        email VARCHAR(255) NOT NULL,
        password VARCHAR(255) NOT NULL,
        token VARCHAR(255) NOT NULL,
-       isEmailConfirmed  BOOLEAN NOT NULL
+       isEmailConfirmed  BOOLEAN NOT NULL, 
+       notifications VARCHAR(255) NOT NULL
        );";
    $db->exec($query);
 
