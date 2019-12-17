@@ -24,14 +24,13 @@
   ?></h1>
   
   
-  <a href="#"><i class="fa fa-thumbs-up"></i></a><br>
-  <a href="#"><i class="fa fa-thumbs-down"></i></a>
-  <!-- <a href="#"><i class="fa fa-linkedin"></i></a>
-  <a href="#"><i class="fa fa-facebook"></i></a> -->
+  
   <p><button>Upload</button></p>
 </div>
 
+<?php
 
+?>
 
 
 

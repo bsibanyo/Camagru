@@ -64,8 +64,31 @@ function getImage(){
       echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a><br>';
      
       echo '<a href="gallery.php?id='.$row['id'].'&clicked=1"><i class="fa fa-thumbs-up"></i></a>';
-      echo '<a href="#"><i class="fa fa-comments-o"></i></a>';
+      echo '<a id="comment" href="#"><i class="fa fa-comments-o"></i></a>';
       
+      echo '<form action="gallery.php" method="post">
+      <textarea id="text" rows="4" cols="50" style="display: none;">
+      
+      </textarea>
+      <input type="submit" id="post" style="display: none;" name="comment-btn" value="Post">
+      </form>';
+      ?>
+      <script>
+        var comment = document.getElementById("comment");
+        var post = document.getElementById("post");
+        var text = document.getElementById("text");
+        comment.onclick = function(){
+          if(post.style.display == "none"){
+            post.style.display = "block";
+            text.style.display = "block";
+          }
+          else{
+            post.style.display = "none";
+            text.style.display = "none";
+          }
+        };
+      </script>
+      <?php
       echo "<button class='btn btn-primary' style='width: 15%; margin-left: 4px;'>Views</button><br>";
       
         
