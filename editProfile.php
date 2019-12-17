@@ -26,6 +26,15 @@ if(isset($_POST['Update']) && isset($_POST['Username'])){
     $username =  cleanInput($_POST['Username']);
     update('username', $username, $_SESSION['id']);
 }
+if(isset($_POST['Update']) && isset($_POST['Email'])){
+    $email =  cleanInput($_POST['Email']);
+    update('email', $email, $_SESSION['id']);
+}
+if(isset($_POST['Update']) && isset($_POST['Email'])){
+    $email =  cleanInput($_POST['Email']);
+    update('email', $email, $_SESSION['id']);
+}
+
 
 ?>
 
