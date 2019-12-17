@@ -1,5 +1,10 @@
 <?php require 'signup.inc.php';
 require 'config/database.php';
+
+function cleanInput($accept){
+  $var = htmlspecialchars(strip_tags(trim($accept)));
+  return $var;
+}
  
   function addLikes($id, $username, $likes){
     global $conn;
@@ -16,11 +21,33 @@ require 'config/database.php';
     }
   }
 
+  function addComment($id, $username, $comment){
+    global $conn;
+    try{
+      $query = "INSERT INTO comments (comment, img_id,username) VALUES (:comment,:img_id, :username)";
+      $stmt = $conn->prepare($query);
+      $stmt->bindParam(':comment', $comment);
+      $stmt->bindParam(':img_id', $id);
+      $stmt->bindParam(':username', $username);
+      
+      $stmt->execute();
+    }
+    catch(PDOException $e){
+      echo "Uanble to access database >".$e->getMessage();
+    }
+  }
+
  //likes
  if(isset($_GET['id'])){
    $img_id = $_GET['id'];
    $clicked = $_GET['clicked'];
    addLikes($img_id, $_SESSION['username'], $clicked);
+  }
+
+  if(isset($_POST['comment-btn'])){
+    $coment = cleanInput($_POST['text']);
+    $id = cleanInput($_POST['img_id']);
+    addComment($id, $_SESSION['username'], $coment);
   }
  
 
@@ -52,7 +79,7 @@ function getImage(){
   $query = "SELECT * FROM images";
   $stmt = $conn->prepare($query);
   $stmt->execute();
-  
+  $i = 0;
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $dest = $row['id'];
     $user_id = $row['user_id'];
@@ -64,19 +91,21 @@ function getImage(){
       echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a><br>';
      
       echo '<a href="gallery.php?id='.$row['id'].'&clicked=1"><i class="fa fa-thumbs-up"></i></a>';
-      echo '<a id="comment" href="#"><i class="fa fa-comments-o"></i></a>';
+      echo '<a class="comment" href="#"><i class="fa fa-comments-o"></i></a>';
       
       echo '<form action="gallery.php" method="post">
-      <textarea id="text" rows="4" cols="50" style="display: none;">
+      <textarea class="text" rows="4" name="text" cols="50" style="display: none;">
       
       </textarea>
-      <input type="submit" id="post" style="display: none;" name="comment-btn" value="Post">
+      <input type="hidden" name="img_id" value="'.$row['id'].'">
+      <input type="submit" class="post" style="display: none;" name="comment-btn" value="Post">
       </form>';
       ?>
       <script>
-        var comment = document.getElementById("comment");
-        var post = document.getElementById("post");
-        var text = document.getElementById("text");
+        var i = "<?php echo $i;?>";
+        var comment = document.getElementsByClassName("comment")[i];
+        var post = document.getElementsByClassName("post")[i];
+        var text = document.getElementsByClassName("text")[i];
         comment.onclick = function(){
           if(post.style.display == "none"){
             post.style.display = "block";
@@ -91,7 +120,7 @@ function getImage(){
       <?php
       echo "<button class='btn btn-primary' style='width: 15%; margin-left: 4px;'>Views</button><br>";
       
-        
+        $i++;
       }
      
       

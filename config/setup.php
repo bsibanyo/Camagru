@@ -64,11 +64,9 @@ try {
     //comments
     $query = "CREATE TABLE comments (
         id INT(9) AUTO_INCREMENT PRIMARY KEY NOT NULL, 
-        status TEXT NOT NULL, 
         comment TEXT NOT NULL, 
-        img VARCHAR(255) NOT NULL, 
-        username VARCHAR(255) NOT NULL, 
-        date TIMESTAMP);";
+        img_id INT(9) NOT NULL, 
+        username VARCHAR(255) NOT NULL);";
 	$db->exec($query);
     
     //nofication
