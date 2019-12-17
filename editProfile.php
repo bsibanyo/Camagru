@@ -3,7 +3,7 @@
 require_once 'config/database.php';
 require 'signup.inc.php';
 
-
+ $msg = "";
 function update($fromValue, $toValue, $id){
     global $conn;
     try{
@@ -22,18 +22,56 @@ function cleanInput($accept){
     return $var;
 }
 
+function getPassword($id){
+    global $conn;
+    try{
+        $query = "SELECT * FROM users WHERE id='$id' LIMIT 1 ";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e){
+        echo "Unable to access db".$e->getMessage();
+    }
+    return $result['password'];
+}
+
 if(isset($_POST['Update']) && isset($_POST['Username'])){
-    $username =  cleanInput($_POST['Username']);
-    update('username', $username, $_SESSION['id']);
+    if(!empty($_POST['Username'])){
+        $username =  cleanInput($_POST['Username']);
+        update('username', $username, $_SESSION['id']);
+    }
 }
 if(isset($_POST['Update']) && isset($_POST['Email'])){
-    $email =  cleanInput($_POST['Email']);
-    update('email', $email, $_SESSION['id']);
+    if(!empty($_POST['Email'])){
+        $email =  cleanInput($_POST['Email']);
+        update('email', $email, $_SESSION['id']);
+    }
 }
-if(isset($_POST['Update']) && isset($_POST['Email'])){
-    $email =  cleanInput($_POST['Email']);
-    update('email', $email, $_SESSION['id']);
+if(isset($_POST['Update']) && isset($_POST['Oldpassword'])){
+    $Oldpassword =  cleanInput($_POST['Oldpassword']);
+    if(password_verify($Oldpassword, getPassword($_SESSION['id']))){
+        if(empty($_POST['Newpassword']) || empty($_POST['passwordConfirm'])){
+            $msg = "Empty Fields!";
+        }
+        else{
+            $newPassword = cleanInput($_POST['Newpassword']);
+            $passwordConfirm = cleanInput($_POST['passwordConfirm']);
+            if( $newPassword != $passwordConfirm){
+                $msg = "Passwords don't match!";
+            }
+            else{
+                $hashed = password_hash($newPassword, PASSWORD_BCRYPT);
+                update('password', $hashed, $_SESSION['id']);
+            }
+        }
+    }
+    else{
+        $msg = "Wrong Password!";
+    }
+   
 }
+
 
 
 ?>
@@ -59,7 +97,7 @@ if(isset($_POST['Update']) && isset($_POST['Email'])){
                <input type="text" placeholder="Username"   name="Username"> </br>
                <input type="email" placeholder="Email"  name="Email">  </br>
                <input type="password" placeholder="Old Password"   name="Oldpassword">  </br>
-               <input type="password" placeholder="New Password"   name="PasswordRepeat">  </br>
+               <input type="password" placeholder="New Password"   name="Newpassword">  </br>
                <input type="password" placeholder="Confirm  New Password"   name="passwordConfirm"> </br>
                 Nofication: 
                YES<input type="radio" name="notification" value="yes">
