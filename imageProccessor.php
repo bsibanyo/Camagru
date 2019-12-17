@@ -1,13 +1,13 @@
 <?php
 
 require_once 'config/database.php';
-require_once 'signup.inc.php';
+require 'signup.inc.php';
 
 
 
 
   if (isset($_POST['upload'])){
-    
+   
         $filename      = uniqid();
         $target_file   = $filename;
         $file          = $_FILES["file"];
