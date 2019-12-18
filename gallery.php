@@ -111,5 +111,7 @@ function getImage(){
     
     ?>
 
+    <?php require 'footer.php'?>
+
 </body>    
 </html>

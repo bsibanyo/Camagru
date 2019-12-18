@@ -17,23 +17,52 @@
    
 <div class="card">
   <img src="images/profile.jpg" alt="" style="width:100%">
-  <h1><?php
-
-  $user_id = $_SESSION['username'];
-  $username = $_SESSION['username'];
-  ?></h1>
-  
-  
+ 
+   
   
   <p><button>Upload</button></p>
 </div>
+<hr>
 
 <?php
-
-?>
-
-
-
+require_once 'config/database.php';
+function getImage(){
+  global $conn;
+  $query = "SELECT * FROM images";
+  $stmt = $conn->prepare($query);
+  $stmt->execute();
+  $i = 0;
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $dest = $row['id'];
+    $user_id = $row['user_id'];
     
+    $temp = explode("_", $row['img']);
+      echo '<div>';
+      $link = '<a  href="comments_likes.php?id='.$dest.'&userId='.$user_id.'">';
+      
+      echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a><br>';
+      //echo '<form action="gallery.php" method="post">
+      //<input type="hidden" name="img_id" value="'.$row['id'].'">
+      //<input type="submit" class="post" name="edit-btn" value="Edit "  >
+      
+  //    </form>';
+   
+      echo '</div>';
+      echo '<a href="edit.php"><button class="btn btn-primary" style="width: 15%; margin-left: 4px; ">Edit</button></a><br>';
+      echo '<a href="delete.php?id='.$dest.'&rm=1"><button class="btn btn-danger" style="width: 15%; margin-left: 4px; ">Delete</button></a><br>';
+      ?>
+      <?php
+      
+        $i++;
+      }
+     
+      
+    }
+    getImage();
+    
+    
+    ?>
+ 
 </body>
+<?php require 'footer.php'?>
 </html>
