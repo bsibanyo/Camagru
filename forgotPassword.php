@@ -17,13 +17,8 @@
                </div>
                <div class="error">
                <?php
-                echo "<ul>";
-                if(count($error) > 0) {
-                    foreach ($error as $me){
-                        echo "<li> $me </li>";
-                    }
-                }
-                echo "</ul>"
+               $msg = "";
+               echo "$msg";
                ?>
                </div>
                <input type="email" placeholder="Email" required>
