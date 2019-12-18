@@ -41,14 +41,12 @@ function getImage(){
       $link = '<a  href="comments_likes.php?id='.$dest.'&userId='.$user_id.'">';
       
       echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a><br>';
-      //echo '<form action="gallery.php" method="post">
-      //<input type="hidden" name="img_id" value="'.$row['id'].'">
-      //<input type="submit" class="post" name="edit-btn" value="Edit "  >
       
-  //    </form>';
    
       echo '</div>';
-      echo '<a href="edit.php"><button class="btn btn-primary" style="width: 15%; margin-left: 4px; ">Edit</button></a><br>';
+      echo '<a href="edit.php?id='.$dest.'&stick=png/11.png"><img src="png/11.png"></a>';
+      echo '<a href="edit.php?id='.$dest.'&stick=png/12.png"><img src="png/12.png"></a>';
+      // echo '<a href="edit.php"><button class="btn btn-primary" style="width: 15%; margin-left: 4px; ">Edit</button></a><br>';
       echo '<a href="delete.php?id='.$dest.'&rm=1"><button class="btn btn-danger" style="width: 15%; margin-left: 4px; ">Delete</button></a><br>';
       ?>
       <?php
