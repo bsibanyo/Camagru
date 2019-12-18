@@ -45,7 +45,7 @@ function getImage(){
    
       echo '</div>';
       echo '<a href="edit.php?id='.$dest.'&stick=png/11.png"><img src="png/11.png"></a>';
-      echo '<a href="edit.php?id='.$dest.'&stick=png/12.png"><img src="png/12.png"></a>';
+      echo '<a href="edit.php?id='.$dest.'&stick=png/12.jpeg"><img src="png/12.jpeg"></a>';
       // echo '<a href="edit.php"><button class="btn btn-primary" style="width: 15%; margin-left: 4px; ">Edit</button></a><br>';
       echo '<a href="delete.php?id='.$dest.'&rm=1"><button class="btn btn-danger" style="width: 15%; margin-left: 4px; ">Delete</button></a><br>';
       ?>
