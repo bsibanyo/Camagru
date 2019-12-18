@@ -91,21 +91,21 @@ function getImage(){
       echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a><br>';
      
       echo '<a href="gallery.php?id='.$row['id'].'&clicked=1"><i class="fa fa-thumbs-up"></i></a>';
-      echo '<a class="comment" href="#"><i class="fa fa-comments-o"></i></a>';
+      echo '<a id="comment" href="#"><i class="fa fa-comments-o"></i></a>';
       
       echo '<form action="gallery.php" method="post">
-      <textarea class="text" rows="4" name="text" cols="50" style="display: none;">
+      <textarea id="text" rows="4" name="text" cols="50" style="display: none;">
       
       </textarea>
       <input type="hidden" name="img_id" value="'.$row['id'].'">
-      <input type="submit" class="post" style="display: none;" name="comment-btn" value="Post">
+      <input type="submit" id="post" style="display: none;" name="comment-btn" value="Post">
       </form>';
       ?>
       <script>
-        var i = "<?php echo $i;?>";
-        var comment = document.getElementsByClassName("comment")[i];
-        var post = document.getElementsByClassName("post")[i];
-        var text = document.getElementsByClassName("text")[i];
+        //var i = "<?php //echo $i;?>";
+        var comment = document.getElementById("comment");
+        var post = document.getElementById("post");
+        var text = document.getElementById("text");
         comment.onclick = function(){
           if(post.style.display == "none"){
             post.style.display = "block";
