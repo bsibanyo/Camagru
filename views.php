@@ -25,22 +25,20 @@
             $stmt = $conn->prepare($query);
             $stmt->execute();
 
-            // echo '<div class="gallery" style=" display : grid; grid-template-columns : 1fr 1fr 1fr; grid-gap: 1rem; width: 100vw; margin :3rem 3rem; ">';//grid-template-rows: auto; //repeat(auto-fit, minmax(300px, 1fr))
+            
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             $dest = $row['id'];
               
               
               $viewComments = $row['comment'];
               $commenter = $row['username'];
-            //   if (isset($_SESSION['id'])) {
+           
                 echo "<p>$commenter: $viewComments</p><hr>";    
                 
-            //   }else{
-            //   echo '<img class="grid-item" src="'.$row['img'] . '" height="250" width="250" alt="fail">';
-            //   }
+           
              
             }
-            // echo "</div>";
+
 
         }
         getComments();

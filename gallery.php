@@ -45,7 +45,7 @@ function cleanInput($accept){
   }
 
   if(isset($_POST['comment-btn'])){
-    $coment = cleanInput($_POST['text']);
+    $coment = cleanInput($_POST['comment']);
     $id = cleanInput($_POST['img_id']);
     addComment($id, $_SESSION['username'], $coment);
   }
@@ -85,38 +85,19 @@ function getImage(){
     $user_id = $row['user_id'];
     
     $temp = explode("_", $row['img']);
-  
+      echo '<div>';
       $link = '<a  href="comments_likes.php?id='.$dest.'&userId='.$user_id.'">';
       
       echo $link.'<img class="grid-item" src="' . $row['img'] . '" height="250" width="250" alt="fail"></a><br>';
-     
-      echo '<a href="gallery.php?id='.$row['id'].'&clicked=1"><i class="fa fa-thumbs-up"></i></a>';
-      echo '<a id="comment" href="#"><i class="fa fa-comments-o"></i></a>';
-      
       echo '<form action="gallery.php" method="post">
-      <textarea id="text" rows="4" name="text" cols="50" style="display: none;">
-      
-      </textarea>
+      <input type="text" name="comment">
       <input type="hidden" name="img_id" value="'.$row['id'].'">
-      <input type="submit" id="post" style="display: none;" name="comment-btn" value="Post">
+      <input type="submit" class="post" name="comment-btn" value="Comment">
+      <a href="gallery.php?id='.$row['id'].'&clicked=1"><i class="fa fa-thumbs-up"></i></a>
       </form>';
+   
+      echo '</div>';
       ?>
-      <script>
-        
-        var comment = document.getElementById("comment");
-        var post = document.getElementById("post");
-        var text = document.getElementById("text");
-        comment.onclick = function(){
-          if(post.style.display == "none"){
-            post.style.display = "block";
-            text.style.display = "block";
-          }
-          else{
-            post.style.display = "none";
-            text.style.display = "none";
-          }
-        };
-      </script>
       <?php
       echo "<a href='views.php'><button class='btn btn-primary' style='width: 15%; margin-left: 4px;'>Views</button></a><br>";
       
