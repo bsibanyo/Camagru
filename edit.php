@@ -51,8 +51,8 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         $image1 = $_GET['stick'];
-        echo "$id "; 
-        echo "$image1";
+        // echo "$id "; 
+        // echo "$image1";
         $getImage = getStickerImage("images", $id);
         imageMerge($getImage, $image1, $id);
     }

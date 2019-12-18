@@ -4,6 +4,38 @@ require_once 'config/database.php';
 require 'signup.inc.php';
 
 
+$errorn = array();
+if(isset($_POST['Upload'])){
+  print_r($_FILES);
+
+  $fileinfo = @getimagesize($_FILES["uploadProfile"]["tmp_name"]);
+      $filename = time()."_".$_FILES["uploadProfile"]["name"];
+      $allowed_image_extension = array("png", "jpg", "jpeg");
+
+      $file_extension = pathinfo($_FILES["uploadProfile"]["name"], PATHINFO_EXTENSION);
+      if (! file_exists($_FILES["uploadProfile"]["tmp_name"])) {
+        $errorn["imageError"] = "Choose image file to upload.";
+      }else if (! in_array($file_extension, $allowed_image_extension)) {
+        $errorn["imageError"] = "Upload valid images. Only PNG and JPEG are allowed.";
+      }else {
+        
+        $img_dir = $_FILES["uploadProfile"]["name"];
+        if (move_uploaded_file($_FILES["uploadProfile"]["tmp_name"], $img_dir)) {
+          $response["imageSuccess"] = "Image uploaded successfully.<br>";
+        }else {
+            $errorn["imageError"] = "Problem in uploading image files.";
+        }
+      }
+
+      if (count($errorn) === 0) {
+        
+        insertImage($_SESSION['id'],$_SESSION['username'], $_FILES["uploadProfile"]["name"]);
+      };
+   
+}
+
+
+
 
 
   if (isset($_POST['upload'])){

@@ -1,3 +1,9 @@
+
+<?php
+// require_once 'signup.inc.php';
+require_once 'imageProccessor.php';
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +18,7 @@
 </head>
 <body>
    <?php require_once 'header.php';?>
-   <?php require 'signup.inc.php';?>
+ 
 
    
 <div class="card">
@@ -20,7 +26,12 @@
  
    
   
-  <p><button>Upload</button></p>
+  <p>
+    <form action="profile.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="uploadProfile" id="">
+      <input type="submit" name="Upload" value="Upload">
+    </form>
+  </p>
 </div>
 <hr>
 
