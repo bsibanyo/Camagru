@@ -31,8 +31,9 @@
               
               
               $viewComments = $row['comment'];
+              $commenter = $row['username'];
             //   if (isset($_SESSION['id'])) {
-                echo "<p>$viewComments</p><hr>";    
+                echo "<p>$commenter: $viewComments</p><hr>";    
                 
             //   }else{
             //   echo '<img class="grid-item" src="'.$row['img'] . '" height="250" width="250" alt="fail">';
