@@ -102,7 +102,7 @@ function getImage(){
       </form>';
       ?>
       <script>
-        //var i = "<?php //echo $i;?>";
+        
         var comment = document.getElementById("comment");
         var post = document.getElementById("post");
         var text = document.getElementById("text");
@@ -118,7 +118,7 @@ function getImage(){
         };
       </script>
       <?php
-      echo "<button class='btn btn-primary' style='width: 15%; margin-left: 4px;'>Views</button><br>";
+      echo "<a href='views.php'><button class='btn btn-primary' style='width: 15%; margin-left: 4px;'>Views</button></a><br>";
       
         $i++;
       }
