@@ -1,3 +1,30 @@
+<?php
+    function cleanInput($accept){
+        $var = htmlspecialchars(strip_tags(trim($accept)));
+        return $var;
+    }
+    function getEmail($email){
+        global $conn;
+        try{
+            $query = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e){
+            echo "nada ".$e->getMessage();
+        }
+        return $row['token'];
+    }
+    if(isset($_POST['forgot'])){
+        $email = cleanInput($_POST['forgotEmail']);
+        echo getEmail($email);
+    }
+    
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +38,7 @@
 <div id="wrapper">
     <div class="container">
         <div class="form-data">
-           <form action="">
+           <form action="forgotPassword.php" method="post">
                <div class="logo">
                    <img src="images/logo.png" alt="camagru">
                </div>
@@ -21,8 +48,8 @@
                echo "$msg";
                ?>
                </div>
-               <input type="email" placeholder="Email" required>
-               <button class="form-btn" type="submit">Send Login Link</button>
+               <input type="email" placeholder="Email" name="forgotEmail">
+               <button class="form-btn"  name="forgot" type="submit">Send Login Link</button>
                <span class="has-seperator">Or</span>
                <a class="password-reset" href="index.php" >Create New Account</a>
            </form>   
