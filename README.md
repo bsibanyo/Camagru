@@ -2,7 +2,7 @@
 
 _is a small Instagram-like site that enables users to make and share photo edits._
 
-SignUp![SignUp](/screenshots/Screenshot 2019-12-20 at 12.10.49.png)
+SignUp![SignUp](/screenshots/Screenshot2019-12-20at12.10.49.png)
 
 Login![Login](/screenshots/Screenshot 2019-12-20 at 12.12.18.png)
 
