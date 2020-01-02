@@ -8,4 +8,10 @@ Verification Email![Verification](/screenshots/verificationemail.png)
 
 Login![Login](/screenshots/login.png)
 
+Photo![Photo](/screenshots/photo.png)
+
+Database![Database](/screenshots/database.png)
+
+Views![Views](/screenshots/views.png)
+
 Forgot Password![Forgot Password](/screenshots/forgotPassword.png)
