@@ -17,11 +17,26 @@ if (isset($_POST['submit'], $_SESSION['userEmail']))
 {
     $email = cleanInput($_SESSION['userEmail']);
     $password = cleanInput($_POST['newPassword']);
+    $verifypassword = cleanInput($_POST['verifyPassword']);
+
+    if(empty($password) || empty($verifypassword) ){
+        $msg = "empty fields";
+   }
+   else if ((strlen($password) <= 6)){
+       $msg = "Password must be 6 or more'.'<br>'.'characters long!";
+   }
+   else if(!preg_match('/(?=.*[a-z])(?=.*[0-9]).{6,}/i', $password)){
+       $msg = "Password must contain letters and digits";
+   }
+   else if($password !==  $passwordRepeat){
+       $msg = "passwords do not match!";
+   }
+
+
     echo "password: ". $password;
     if (empty($password)) {
         $msg = "The password is empty";
     }
-    $verifypassword = cleanInput($_POST['verifyPassword']);
     echo "ver password: ". $verifypassword;
 
     try{
