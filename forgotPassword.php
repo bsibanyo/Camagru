@@ -1,4 +1,6 @@
 <?php
+    require_once 'config/database.php';
+
     function cleanInput($accept){
         $var = htmlspecialchars(strip_tags(trim($accept)));
         return $var;
@@ -14,11 +16,24 @@
         catch(PDOException $e){
             echo "nada ".$e->getMessage();
         }
-        return $row['token'];
+        return $row['email'];
     }
     if(isset($_POST['forgot'])){
         $email = cleanInput($_POST['forgotEmail']);
-        echo getEmail($email);
+        $message = "
+                        Congratulations bruce!, 
+                        Your account has been created, you can now login using your username and password.
+                        Please click the link below to activate your account:
+                        http://localhost:8080/camagru/forgot-password-form.php?email=$email
+        
+        
+        
+                        Kind regards,
+                        Camagru Team
+        
+        
+                        ";
+        mail(getEmail($email), "Link to reset your password", $message);
     }
     
 ?>
