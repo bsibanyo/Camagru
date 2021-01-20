@@ -23,5 +23,5 @@ Forgot Password![Forgot Password](/screenshots/forgotPassword.png)
 Resources
 * PHP
 * phpmyAdmin
-* SQL
+* mySQL
 * Apache
