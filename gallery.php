@@ -60,10 +60,10 @@ function cleanInput($accept){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/profile.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/profileEditor.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="css/profileEditor.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <title>Profile</title>
   </head>
   <body>
@@ -99,7 +99,7 @@ function getImage(){
       echo '</div>';
       ?>
       <?php
-      echo "<a href='views.php'><button class='btn btn-primary' style='width: 15%; margin-left: 4px;'>Views</button></a><br>";
+      echo "<a href='views.php'><button class='btn btn-primary' style='width: 15%; margin-top: 70px;'>Views</button></a><br>";
       
         $i++;
       }
