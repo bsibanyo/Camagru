@@ -19,3 +19,9 @@ Edit Profile![Edit Profile](/screenshots/editProfile.png)
 Views![Views](/screenshots/views.png)
 
 Forgot Password![Forgot Password](/screenshots/forgotPassword.png)
+
+Resources
+* PHP
+* phpmyAdmin
+* SQL
+* Apache
